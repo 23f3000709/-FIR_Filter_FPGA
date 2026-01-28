@@ -1,8 +1,3 @@
-//=========================================================
-// FIR Filter FPGA Implementation
-// 24-tap FIR filter (Direct Form)
-// Coefficients generated from MATLAB
-//=========================================================
 
 module fir_filter_fpga (
     input  wire        clk,
@@ -22,9 +17,8 @@ module fir_filter_fpga (
     // Accumulator
     reg signed [31:0] acc;
 
-    // -----------------------------------------
+    
     // Coefficient initialization (MATLAB output)
-    // -----------------------------------------
     initial begin
         b[0]  = -38;
         b[1]  = -76;
@@ -52,9 +46,9 @@ module fir_filter_fpga (
         b[23] = 631;
     end
 
-    // -----------------------------------------
+    
     // FIR Filter Operation
-    // -----------------------------------------
+    
     always @(posedge clk or posedge rst) begin
         if (rst) begin
             // Reset delay line and output
